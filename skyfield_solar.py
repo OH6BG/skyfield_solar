@@ -47,8 +47,6 @@ def get_mp(lat1, lon1, lat2, lon2):
 # Initialize skyfield parameters
 ts = load.timescale()
 planets = load('de421.bsp')
-sun = planets['sun']
-earth = planets['earth']
 
 # Timezone = UTC, elevation (elv) = 0 meters
 tzn, elv = 'UTC', 0
@@ -77,7 +75,7 @@ dxcc = [
 # Run calculations from TX to the 'dxcc' list of locations
 for country in dxcc:
 
-    dates, t_sr, t_ss, r_sr, r_ss, mp_sr, mp_ss, mp_nadir = [], [], [], [], [], [], [], []
+    dates, t_sr, t_ss, r_sr, r_ss, mp_sr, mp_ss = [], [], [], [], [], [], []
 
     # Receive site params
     cty, rxlat, rxlon = country
